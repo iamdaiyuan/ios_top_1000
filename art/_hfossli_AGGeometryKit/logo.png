@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Postimage.org - free image hosting / image upload</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="free image hosting, forum image hosting, phpbb image mod, phpbb upload mod, image upload mod, image host, sites, forums, picture hosting, photo sharing, image upload" />
+<meta name="description" content="Provides free image upload and hosting integration for forums. Free picture hosting and photo sharing for websites and blogs." />
+<link rel="stylesheet" type="text/css" href="http://postimage.org/style.min.css" />
+<link rel="canonical" href="http://postimage.org/" />
+<link rel="shortcut icon" href="http://postimage.org/favicon.ico" type="image/x-icon" />
+<script type="text/javascript">
+<!--
+var text_alert="Please specify content type of your file/files!";if(top.location!=self.location){var href=self.location.href;top.location=href;}
+-->
+</script>
+<style>
+html, body { height: 98%; }
+</style>
+</head>
+<body>
+<div id="center"><div id="header">
+	<p style="font-size:20px;color:#37587A;letter-spacing:12px"><a style='text-decoration: none;' href='http://postimage.org/'>postimage.org</a></p><br />
+	<p style="font-size:11px;color:#999;">
+		<span id="bmc" bmctext="Add to Favorites" bmctitle="! Postimage.org - free image hosting / image upload" bmcurl="http://postimage.org/"></span><a href="http://postimage.org/register.php">Register</a> |
+		<a href="http://postimage.org/profile.php">Login</a>
+	</p>
+</div>
+<div id="content"><div id="answer1" class="box" onMouseOut="toggle('answer1'); return false;" style="display:none">You can upload images in the following formats: jpg, png, gif, bmp, psd, pdf, tiff<br /><br />File size limit is 8Mb</div>
+<div id="answer2" class="box" style="display:none">Images that contain nudity need to be marked clearly by selecting the 'adult content' field. Images that contain nudity but have not been marked so will be deleted.</div>		<div id="container">
+			<div id="progress" style="display:none;position:absolute;top:auto;z-index:1000;height:212px;width: 492px; background:#FFFFFF">
+				<center>
+				<br /><br /><div class="progress-text">Uploading...<br /><br /><span class="overall-title">&nbsp;</span></div><br />
+				<div style="height:14px;width:300px;border:1px solid #666666"><div class="progress overall-progress" id="status_uploading" style="width:0px;max-width:298px;float:left;height:12px;background-color:#cccccc;border:1px solid #fff"></div></div><br /><br />
+				<form method='post' action=''><input type='submit' id="button_cancel" value="Cancel" class="submit" /></form>
+				</center>
+			</div>
+			<form name='myForm' id='myForm' method='post' action='' enctype="multipart/form-data" onsubmit="return submit_form();">
+			<input type='hidden' name='mode' id='mode' value='local' /><input type='hidden' name='areaid' id='areaid' value='' /><input type='hidden' name='hash' id='hash' value='' /><input type='hidden' name='code' id='code' value='' /><input type='hidden' name='content' id='content' value='' /><input type='hidden' name='tpl' id='tpl' value='.' /><input type='hidden' name='ver' id='ver' value='' /><input type='hidden' name='addform' id='addform' value='' /><input type='hidden' name='mforum' id='mforum' value='' /><input type='hidden' name='session_upload' id='session_upload' value='' /><input type='hidden' name='um' id='um' value='computer' /><input type='hidden' name='forumurl' id='forumurl' value='http://postimage.org/' /><input type='hidden' name='gallery_id' id='gallery_id' value='' /><input type='hidden' name='upload_error' id='upload_error' value='' />			<table border="0" cellpadding="3" cellspacing="0">
+				<tr>
+					<td>Upload images:</td>
+					<td nowrap><b>Computer</b> | <a href="index.php?um=web">Web</a></td>
+				</tr>
+				<tr>
+					<td width="215px"><span onmouseover="toggle('answer1'); return false;" onMouseOut="toggle('answer1'); return false;" class='tltp'>Select files to upload:</span></td>
+					<td><input type="hidden" name="MAX_FILE_SIZE" value="16777216" /><input type="file" id="file_upload" name="upload[]" size="31" style="background: #F8F8F8; border: 1px solid #888; width:240px;font: 11px Verdana, Arial, Helvetica, sans-serif;padding:2px;" min="1" max="50" multiple="multiple" /></td>
+				</tr>
+						<tr>
+			<td id="description">Resize:</td>
+			<td>
+			<input type="hidden" name='ui' id='ui' value="" />
+			<select name="optsize" id="optsize" style="width:241px;" onchange="$.cookie(this.name,this.value)">
+			<option value="0">Do not resize my image</option>
+			<option value="1">100x75 (avatar)</option>
+			<option value="2">150x112 (thumbnail)</option>
+			<option value="3">320x240 (for websites and email)</option>
+			<option value="4">640x480 (for message boards)</option>
+			<option value="5">800x600 (15-inch monitor)</option>
+			<option value="6">1024x768 (17-inch monitor)</option>
+			<option value="7">1280x1024 (19-inch monitor)</option>
+			<option value="8">1600x1200 (21-inch monitor)</option>
+			</select>
+			</td>
+		</tr>
+				<tr>
+			<td id="description"><span onmouseover="toggle('answer2'); return false;" onMouseOut="toggle('answer2'); return false;" class='tltp'>Image content:</span></td>
+			<td nowrap><label for="l_adult_yes" style="color: #FF2400;"><input id="l_adult_yes" type="radio" name="adult" value="yes" onclick="$.cookie(this.name,this.value)" class="radio" /> ADULT content</label>&nbsp;&nbsp;<label for="l_adult_no"><input id="l_adult_no" type="radio" name="adult" value="no" onclick="$.cookie(this.name,this.value)" class="radio" /> FAMILY safe</label></td>
+		</tr>
+						<tr>
+					<td></td>
+					<td><input type="submit" name="btSubmit" id="btSubmit" value="Upload It!" class="submit" /></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</div>
+<div id="footer">
+	<p id='tools'>
+		<a href="http://postimage.org/app.php" style="text-decoration: none;"><b>desktop app</b> (windows)</a> - <a href="http://postimage.org/mod.php" target="_blank" style="text-decoration: none;">add image hosting to <b>your forum</b></a> - <a href="http://postimage.org/languages.php?lang=english" target="_blank" style="text-decoration: none;">incorrect <b>translation?</b></a>
+	<br /><br />
+	</p>
+	<ul>
+		<li><a href="http://postimage.org/about.php" target="_blank">About</a> |</li>
+		<li><a href="http://postimage.org/terms.php" target="_blank">Terms of Use</a> |</li>
+		<li><a href="http://postimage.org/privacy.php" target="_blank">Privacy Policy</a> |</li>
+		<li><a href="http://postimage.org/faq.php" target="_blank">FAQ</a> |</li>
+		<li><a href="http://postimage.org/languages.php" target="_blank">Languages</a> |</li>
+		<li><a href="http://postimage.org/contact.php" target="_blank">Contact Us</a></li>
+	</ul>
+	<p><br />Powered by &copy; Postimage.org</p>
+</div>
+</div><center><script type="text/javascript">
+	var w = window,
+	d = document,
+	e = d.documentElement,
+	g = d.getElementsByTagName('body')[0],
+	current_height=w.innerHeight || e.clientHeight || g.clientHeight;;
+	
+	if(current_height>500)
+	{
+		document.write('<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0776200265208929" data-ad-slot="5404951644"></ins>');
+		(adsbygoogle = window.adsbygoogle || []).push({});
+
+		if(current_height>580)
+		{
+			document.write('<br /><br />');
+			document.write('<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0776200265208929" data-ad-slot="4225761229"></ins>');
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		}
+	}
+</script>
+</center><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><style>
+.uploadifive-file{cursor: pointer;font: 11px Verdana, Arial, Helvetica, sans-serif; background: #F8F8F8; border: 1px solid #888;background-color: #F8F8F8;margin-top: 1px;float: left;width: 151px;height: 17px;border-right: none;padding: 0 0 0 3px;}.uploadbutton{cursor: pointer;font: 11px Verdana, Arial, Helvetica, sans-serif; width: 85px;height: 17px;background: #F0F0F0; border: 1px solid #888;background-color: #F0F0F0;text-align: center;float: left;margin:1px 0 0 -1px;border-left: none;}
+</style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="/index.group.js"></script>
+<script type="text/javascript">
+<!--
+var queue_count=0;var queue_size=0;html5=true;var allProgress = {};$(function(){$('#file_upload').uploadifive({'auto' : false,'height' : 17,'width' : 85,'fileSizeLimit' : 8192,'fileObjName' : 'upload','buttonText' : "Browse...",'uploadScript' : '/index.php','simUploadLimit' : 8,'fileType' : ["jpg","gif","png","jpeg","bmp","psd","pdf","tif","tiff","ico","svg","nef","crw","cr2","raw"],onFallback : function(){html5=false;window.location="/index.php?um=flash";},onError : function(data){$('#upload_error').val('UPLOADFAILED'+data);},onAddQueueItem : function(file){queue_count+=1;queue_size+=file.size;var convertmb=Math.round(queue_size/1024/1024*100)/100;if(queue_count==1){$('.uploadifive-file').val('"'+file.name+'"');}else{$('.uploadifive-file').val(queue_count+' files, '+convertmb+' MB total');}},onProgress : function(file, e){if(queue_count){if(e.lengthComputable){allProgress[file.queueItem.attr('id')]=e.loaded;}var total_loaded=0;var len=0;for (var key in allProgress){len++;total_loaded=total_loaded+allProgress[key];}var totalPercent=Math.round((total_loaded / queue_size) * 100);if(totalPercent>=100){totalPercent=100;}if(len>=queue_count){len=queue_count;}$('.overall-title').html(totalPercent+'% ( file '+len+' of '+queue_count+' )');$('.overall-progress').css('width',totalPercent+'%');}},onQueueComplete : function (uploads){$('.overall-title').html('100% ( file '+queue_count+' of '+queue_count+' )');$('.overall-progress').css('width','100%');$('#myForm').submit();},onUploadComplete : function(file, data){if(data.indexOf('UPLOADFAILED')!=-1){$('#upload_error').val(data);}else{$('#gallery_id').val(data);}}});$('#btSubmit').click(function(){if(submit_form()){if(queue_count){$('#session_upload').val(new Date().getTime());var myObjVars = {};$('form[id$=myForm] input').each(function (){if($(this)[0].type=='hidden'){myObjVars[$(this)[0].name]=$(this).val();}});if($('#l_adult_yes:checked').length){myObjVars['adult']='yes';}else{myObjVars['adult']='no';}if($('#gallery_select').length){myObjVars['gallery']=$('#gallery_select').val();}if($('#optsize').length){myObjVars['optsize']=$('#optsize').val();}$('#file_upload').data('uploadifive').settings.formData=myObjVars;$('#file_upload').uploadifive('upload');$('#progress').show();}}if(html5){return false;}else{if(submit_form()){$('#session_upload').val('');$('#button_cancel').hide();$('#progress').show();setTimeout('upload_status(0)',500);}}});});new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) + ";h"+escape(document.title.substring(0,80)) + ";" +Math.random();
+-->
+</script>
+</body>
+</html>

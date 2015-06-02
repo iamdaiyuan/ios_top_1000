@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+</HEAD>
+<BODY>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<script language="JavaScript">
+	HomePage ="/";
+	LeCookie = document.cookie;
+	TableauCookie = String(LeCookie).split("; ")
+	LongueurCookie = TableauCookie.length;
+	for(var i = 0; i < LongueurCookie; i++){
+		if(TableauCookie[i]=="site=entreprises"){
+			HomePage ="/Entreprise/Home/P_EE_Home.jsp";
+		}
+	}
+	location.href = HomePage;
+</script>
+<!-- ##Erreur## -->
+</BODY>
+</HTML>
