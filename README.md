@@ -7,6 +7,9 @@ A curated list of awesome iOS Top 1000 libraries.
 ## Mantainers
 [![iamdaiyuan](https://avatars0.githubusercontent.com/u/8256?v=3&s=96) iamdaiyuan](https://github.com/iamdaiyuan)  
 
+## Other
+[Android Top 1000](https://github.com/iamdaiyuan/android_top_1000)
+
 ## Top 1000
 Name | Demo
 ---  | ---
